@@ -10,12 +10,12 @@ public class Room {
     private String tipeKamar;
     private double dailyTariff;
 
-    public Room(String statusKamar, String tipeKamar, double roomNumber, String dailyTariff) {
+    public Room(String tipeKamar, String roomNumber, String statusKamar, double dailyTariff )
+    {
+        this.tipeKamar = tipeKamar;
         this.roomNumber = roomNumber;
         this.statusKamar = statusKamar;
-        this.roomNumber = roomNumber;
         this.dailyTariff = dailyTariff;
-
     }
 
     public String getRoomNumber()

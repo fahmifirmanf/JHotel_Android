@@ -12,11 +12,12 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(int id, String nama, Lokasi lokasi, int bintang) {
-        this.id = id;
+    public Hotel(String nama, Lokasi lokasi, int bintang, int id)
+    {
         this.nama = nama;
         this.lokasi = lokasi;
         this.bintang = bintang;
+        this.id = id;
     }
 
     public int getId() {

@@ -17,31 +17,39 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         final EditText emailInput = (EditText) findViewById(R.id.inputEmail);
         final EditText passInput = (EditText) findViewById(R.id.inputPass);
         final Button loginButton = (Button) findViewById(R.id.buttonLogin);
+        final TextView registerClickable = (TextView) findViewById(R.id.registerClickable);
+        registerClickable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regisInt = new Intent(LoginActivity.this, RegisterActivity.class);
+                LoginActivity.this.startActivity(regisInt);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final String email = emailInput.getText().toString();
                 final String password = passInput.getText().toString();
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                Response.Listener<String> responseListener = new Response.Listener<String> () {
                     @Override
                     public void onResponse(String response) {
-                        try {
+                        try{
                             JSONObject jsonResponse = new JSONObject(response);
-                            if (jsonResponse != null) {
+                            if(jsonResponse!=null) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage("Login Success")
                                         .create()
                                         .show();
+                                Intent mainInt = new Intent(LoginActivity.this, MainActivity.class);
+                                mainInt.putExtra("id_customer", jsonResponse.getInt("id"));
+                                LoginActivity.this.startActivity(mainInt);
                             }
                         } catch (JSONException e) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -51,19 +59,10 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };
-                LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
+                LoginRequest loginRequest = new LoginRequest(email,password,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
         });
-        final TextView registerClickable = (TextView) findViewById(R.id.registerClickable);
-        registerClickable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent regisInt = new Intent(LoginActivity.this, RegisterActivity.class);
-                LoginActivity.this.startActivity(regisInt);
-            }
-        });
-
-}
+    }
 }
