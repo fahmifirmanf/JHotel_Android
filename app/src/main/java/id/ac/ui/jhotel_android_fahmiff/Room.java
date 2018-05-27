@@ -10,12 +10,20 @@ public class Room {
     private String tipeKamar;
     private double dailyTariff;
 
+    /*
     public Room(String tipeKamar, String roomNumber, String statusKamar, double dailyTariff )
     {
         this.tipeKamar = tipeKamar;
         this.roomNumber = roomNumber;
         this.statusKamar = statusKamar;
         this.dailyTariff = dailyTariff;
+    }
+    */
+    public Room(String roomNumber, String statusKamar, double dailyTariff, String tipeKamar) {
+        this.roomNumber = roomNumber;
+        this.statusKamar = statusKamar;
+        this.dailyTariff = dailyTariff;
+        this.tipeKamar = tipeKamar;
     }
 
     public String getRoomNumber()

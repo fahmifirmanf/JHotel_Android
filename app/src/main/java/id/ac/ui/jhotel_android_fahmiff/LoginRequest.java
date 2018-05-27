@@ -10,12 +10,12 @@ import java.util.Map;
  */
 
 public class LoginRequest extends StringRequest {
-    private static final String Regis_URL = "http://10.5.79.65/logincust";
+    private static final String Login_URL = "http://192.168.43.79:8080/logincust";
     private Map<String, String> params;
 
     public LoginRequest(String email, String password,
                         Response.Listener<String> listener) {
-        super(Method.POST, Regis_URL, listener, null);
+        super(Method.POST, Login_URL, listener, null);
         params = new HashMap<>();
         params.put("email", email);
         params.put("password", password);

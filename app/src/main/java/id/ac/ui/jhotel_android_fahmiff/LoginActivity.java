@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
+//import android.text.TextUtils;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -37,28 +38,30 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String email = emailInput.getText().toString();
                 final String password = passInput.getText().toString();
-                Response.Listener<String> responseListener = new Response.Listener<String> () {
-                    @Override
-                    public void onResponse(String response) {
-                        try{
-                            JSONObject jsonResponse = new JSONObject(response);
-                            if(jsonResponse!=null) {
+
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonResponse = new JSONObject(response);
+                                if (jsonResponse != null) {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                                    builder.setMessage("Login Berhasil :)")
+                                            .create()
+                                            .show();
+                                    Intent mainInt = new Intent(LoginActivity.this, MainActivity.class);
+                                    mainInt.putExtra("id_customer", jsonResponse.getInt("id"));
+                                    LoginActivity.this.startActivity(mainInt);
+                                }
+                            } catch (JSONException e) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Success")
+                                builder.setMessage("Gagal Login :(")
                                         .create()
                                         .show();
-                                Intent mainInt = new Intent(LoginActivity.this, MainActivity.class);
-                                mainInt.putExtra("id_customer", jsonResponse.getInt("id"));
-                                LoginActivity.this.startActivity(mainInt);
                             }
-                        } catch (JSONException e) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                            builder.setMessage("Login Failed.")
-                                    .create()
-                                    .show();
                         }
-                    }
-                };
+                    };
+
                 LoginRequest loginRequest = new LoginRequest(email,password,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);

@@ -11,11 +11,12 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-
+import com.android.volley.VolleyError;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.android.volley.Request;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+//import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -30,7 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         final Button regisButton = (Button) findViewById(R.id.buttonRegister);
 
         regisButton.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View V) {
+            @Override
+            public void onClick(View V) {
                 final String fullname = Fullname.getText().toString();
                 final String email = Email.getText().toString();
                 final String password = Password.getText().toString();

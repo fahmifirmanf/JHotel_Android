@@ -96,21 +96,27 @@
             android:text="TextView"
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/batal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tanggal_pesan"
-            android:layout_marginLeft="80dp"
-            android:text="Batal" />
 
-        <Button
-            android:id="@+id/selesai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/batal"
-            android:layout_marginLeft="80dp"
-            android:text="Selesai" />
+
+    <Button
+        android:id="@+id/batal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tanggal_pesan"
+        android:layout_marginLeft="80dp"
+        android:text="Batal"
+         />
+
+    <Button
+        android:id="@+id/selesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/batal"
+        android:layout_marginLeft="80dp"
+        android:text="Selesai"
+       />
 
     </RelativeLayout>
+
+
 </android.support.constraint.ConstraintLayout>

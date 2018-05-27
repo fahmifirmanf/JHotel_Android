@@ -11,11 +11,11 @@ import java.util.Map;
  */
 
 public class MenuRequest extends StringRequest {
-    private static final String Regis_URL = "http://10.5.79.65/vacantrooms";
+    private static final String Menu_URL = "http://192.168.43.79:8080/vacantrooms";
     private Map<String, String> params;
 
     public MenuRequest(Response.Listener<String> listener) {
-        super(Method.GET, Regis_URL, listener, null);
+        super(Request.Method.GET, Menu_URL, listener, null);
         params = new HashMap<>();
     }
 

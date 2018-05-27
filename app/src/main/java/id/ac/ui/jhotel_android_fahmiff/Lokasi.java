@@ -7,15 +7,15 @@ package id.ac.ui.jhotel_android_fahmiff;
 public class Lokasi {
     private double x_coord;
     private double y_coord;
-    private String deskripsi;
+    private String deskripsiLokasi;
 
     public Lokasi() {
     }
 
-    public Lokasi(double x_coord, double y_coord, String deskripsi) {
+    public Lokasi(double x_coord, double y_coord, String deskripsiLokasi) {
         this.x_coord = x_coord;
         this.y_coord = y_coord;
-        this.deskripsi = deskripsi;
+        this.deskripsiLokasi = deskripsiLokasi;
     }
 
     public double getX_coord() {
@@ -27,7 +27,7 @@ public class Lokasi {
     }
 
     public String getDeskripsi() {
-        return deskripsi;
+        return deskripsiLokasi;
     }
 
     public void setX_coord(double x_coord) {
@@ -39,7 +39,7 @@ public class Lokasi {
     }
 
     public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+        this.deskripsiLokasi = deskripsi;
     }
 
 }

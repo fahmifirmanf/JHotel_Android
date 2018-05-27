@@ -43,7 +43,7 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final String childText = ((Room) getChild(groupPosition, childPosition)).toString();
+        final String childText = ((Room) getChild(groupPosition, childPosition)).getRoomNumber();
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -82,7 +82,7 @@ public class MenuListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        Lokasi headerTitle = ((Hotel) getGroup(groupPosition)).getNama();
+        String headerTitle = ((Hotel) getGroup(groupPosition)).getNama();
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
