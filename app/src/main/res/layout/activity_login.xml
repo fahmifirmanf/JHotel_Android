@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
+        android:background="@drawable/backhotel2"
         tools:ignore="UselessParent">
 
         <View

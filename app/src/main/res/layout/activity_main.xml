@@ -12,7 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:background="@drawable/backhotel2"
+        >
 
         <ExpandableListView
             android:id="@+id/lvExp"

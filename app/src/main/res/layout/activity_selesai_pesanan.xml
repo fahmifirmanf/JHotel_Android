@@ -14,7 +14,9 @@
         android:layout_centerVertical="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:background="@drawable/backhotel2"
+        >
 
         <TextView
             android:id="@+id/staticIdPesanan"
